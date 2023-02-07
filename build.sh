@@ -16,7 +16,7 @@ SERVER="ssh $USERNAME@$IP_ADDRESS -i key.pem -p $SSH_PORT -o stricthostkeychecki
 
 OLD_VERSION=$( ${SERVER} "grep -o 'registry.buildpiper.in/*[^ ]*' ${FILE_PATH}" | awk -F: '{print $2}' | uniq)
 
-logInfoMessage "I'll upgrade the buildpiper version [$OLD_VERSION] to [$NEW_VERSION]"
+logInfoMessage "I'll upgrade the buildpiper version"
 logInfoMessage "Received below arguments"
 logInfoMessage "Current version: $OLD_VERSION"
 logInfoMessage "Latest version: $NEW_VERSION"
