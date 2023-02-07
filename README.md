@@ -1,6 +1,6 @@
 # BP-VERSION-UPGRADE-STEP
 
-This step will help to upgrade the buildpiper version.
+This step will help you to upgrade the buildpiper version.
 
 ## Setup
 * Clone the code available at [BP-VERSION-UPGRADE-STEP](https://github.com/OT-BUILDPIPER-MARKETPLACE/BP-VERSION-UPGRADE-STEP.git)
