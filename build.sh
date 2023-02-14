@@ -12,6 +12,8 @@ else
    echo "$PRIVATE_KEY_FILE" > key.pem && chmod 400 key.pem
 fi 
 
+sleep $SLEEP_DURATION
+
 SERVER="ssh $USERNAME@$IP_ADDRESS -i key.pem -p $SSH_PORT -o stricthostkeychecking=no"
 
 OLD_VERSION=$( ${SERVER} "grep -o 'registry.buildpiper.in/*[^ ]*' ${FILE_PATH}" | awk -F: '{print $2}' | uniq)
