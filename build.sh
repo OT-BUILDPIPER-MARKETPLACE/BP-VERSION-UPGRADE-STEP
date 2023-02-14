@@ -9,7 +9,10 @@ source aws-functions.sh
 if [ -f "key.pem" ]; then
    true
 else
-   echo "$PRIVATE_KEY_FILE" > key.pem && chmod 400 key.pem
+   echo -e "$PRIVATE_KEY_FILE" > key.pem
+   sed -i 's/ \+/\'$'\n/g' key.pem && sed -i '1,4d' key.pem 
+   sed -i '1 i -----BEGIN RSA PRIVATE KEY-----' key.pem && sed -i '27,30d' key.pem 
+   echo "-----END RSA PRIVATE KEY-----" >> key.pem && chmod 400 key.pem
 fi 
 
 sleep $SLEEP_DURATION
@@ -33,4 +36,3 @@ else
    logInfoMessage "Buildpiper version is up to date!!!"
    generateOutput ${ACTIVITY_SUB_TASK_CODE} false "Buildpiper version is up to date!!!"
 fi
-
