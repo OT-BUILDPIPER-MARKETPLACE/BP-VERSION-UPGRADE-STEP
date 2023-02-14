@@ -24,6 +24,7 @@ logInfoMessage "Latest version: $NEW_VERSION"
 if [ "$OLD_VERSION" != "$NEW_VERSION" ]; then
    logInfoMessage "Upgrading version"
    $SERVER "sed -i 's/$OLD_VERSION/$NEW_VERSION/g' $FILE_PATH"
+   $SERVER "cd deploy_buildpiper && docker-compose up -d"
    logInfoMessage "Congratulations Buildpiper version has been successfully upgraded!!!"
    generateOutput ${ACTIVITY_SUB_TASK_CODE} true "Congratulations Buildpiper version has been successfully upgraded!!!"
 else
